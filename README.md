@@ -4,7 +4,7 @@ Submitted by: **Yingshu**
 
 This web app: **Capital Quest is a geography flashcard app that tests how well you know the world's capital cities. Each card shows a country (along with its flag) and challenges you to recall its capital. Flip the card to check your answer, and hit "Next Card" to be quizzed on a new country chosen at random. Cards are color-coded by continent so you can see at a glance which region you're studying.**
 
-Time spent: **_[fill in]_** hours spent in total
+Time spent: **6** hours spent in total
 
 ## Required Features
 
@@ -30,11 +30,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-<img src='' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-
-<!-- Replace the empty src above with a link to your GIF, e.g. GIF created with ScreenToGif (Windows) or Kap (macOS) -->
-
-GIF created with ... <!-- e.g. ScreenToGif / Kap / LICEcap -->
+[Watch the demo video](https://drive.google.com/file/d/1mUorQlActqBYQ-bVt978hToSwQov_ZGA/view?usp=sharing)
 
 ## Notes
 
