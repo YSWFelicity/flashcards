@@ -2,29 +2,37 @@
 
 Submitted by: **Yingshu**
 
-This web app: **Capital Quest is a geography flashcard app that tests how well you know the world's capital cities. Each card shows a country (along with its flag) and challenges you to recall its capital. Flip the card to check your answer, and hit "Next Card" to be quizzed on a new country chosen at random. Cards are color-coded by continent so you can see at a glance which region you're studying.**
+This web app: **Capital Quest is a geography flashcard app that tests how well you know the world's capital cities. Each card shows a country (along with its flag) and challenges you to recall its capital. Type your guess into the answer box and submit it for instant correct/incorrect feedback, flip the card to check, and move through the deck with Back / Next. Shuffle the deck, build a streak of correct answers, and mark cards as mastered to retire them. Cards are color-coded by continent so you can see at a glance which region you're studying.**
 
-Time spent: **6** hours spent in total
+Time spent: **10** hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
-- [x] **The title of the card set and some information about it, such as a short description and the total number of cards are displayed**
-- [x] **A single card at a time is displayed, only showing one of the components of the information pair**
-- [x] **A list of card pairs is created**
-- [x] **Clicking on the card shows the corresponding component of the information pair**
-- [x] **Clicking the next button displays a random new card**
+- [x] **The user can submit a guess into an input box before seeing the flipside of a card**
+  - A clearly labeled input box with a Submit button lets the user type a guess
+  - Submitting an incorrect answer shows visual feedback that it is wrong (red input + "Not quite" message)
+  - Submitting a correct answer shows visual feedback that it is correct (green input + "Correct!" message, and the card flips to reveal the answer)
+- [x] **The user can navigate through an ordered list of cards**
+  - A forward / Next button moves to the next card in the set sequence
+  - A previous / Back button returns to the previous card in the set sequence
+  - The Back and Next buttons gray out and become unclickable at the beginning and end of the list (no wrap-around navigation)
 
-The following **optional** features are implemented:
+The following **stretch** features are implemented:
 
-- [x] **Cards contain images in addition to or in place of text** — each card displays the country's flag (loaded from flagcdn.com)
-- [x] **Cards have different visual styles such as color based on their category** — cards are accent-colored by continent (Europe, Asia, Africa, North America, South America, Oceania), each with a matching category badge
+- [x] **Users can use a shuffle button to randomize the order of the cards** — cards stay in their original sequence until the Shuffle button is clicked, which reorders the deck with a Fisher–Yates shuffle.
+- [x] **A user's answer may be counted as correct even when it is slightly different from the target answer** — guesses are matched fuzzily, ignoring uppercase/lowercase, accents (e.g. "Brasilia" matches "Brasília"), punctuation, and extra spacing.
+- [x] **A counter displays the user's current and longest streak of correct responses** — the current streak increments on a correct guess and resets to 0 on an incorrect one; the longest streak updates whenever the current streak exceeds it.
+- [x] **A user can mark a card that they have mastered and have it removed from the pool of displayed cards** — the ⭐ Mastered button removes the current card from the deck and tracks it in a mastered count; once every card is mastered a celebration screen is shown.
 
-The following **additional** features are implemented:
+## Carried over from Part 1
 
-- A 3D flip animation plays when a card is clicked, rotating between the country (front) and the capital (back).
-- The "Next Card" button is guaranteed to pick a *different* card than the one currently showing, so the same card never appears twice in a row.
+- [x] The title, description, and total card count are displayed
+- [x] A single card is shown at a time, displaying only one side of the pair
+- [x] Clicking a card flips it to reveal the other side (3D flip animation)
+- [x] Cards include images — each card shows the country's flag (loaded from flagcdn.com)
+- [x] Cards are visually styled by category — accent-colored by continent with a matching badge
 
 ## Video Walkthrough
 
@@ -34,7 +42,9 @@ Here's a walkthrough of implemented required features:
 
 ## Notes
 
-One challenge I ran into while building this app was getting the card to flip with a smooth animation. Showing only one side of the pair at a time meant using CSS 3D transforms (`transform-style: preserve-3d` and `backface-visibility: hidden`) rather than simply swapping the text, which took some trial and error to line up correctly. Another challenge was passing data and a function from the parent `App` component down to the custom `Flashcard` component as props, and making sure clicking the "Next Card" button never landed on the same card that was already showing.
+In Part 2 the trickiest part was managing the growing amount of state. The app now tracks the working deck (so it can be shuffled and have mastered cards removed), the current index, the flip state, the guess text, the result of the last submission, and both streak counters. Keeping these in sync — for example, clearing the guess and flip whenever the user navigates to a different card, and recomputing the boundary conditions so the Back / Next buttons disable correctly at the ends — took careful thought. Implementing fuzzy answer matching was also interesting: I normalized both the guess and the target by lowercasing, stripping accents with `String.normalize('NFD')`, removing punctuation, and collapsing whitespace so that answers like "Brasilia" still match "Brasília".
+
+From Part 1, getting the card to flip with a smooth animation using CSS 3D transforms (`transform-style: preserve-3d` and `backface-visibility: hidden`) and passing data and handlers from `App` down to the nested `Flashcard` and `GuessForm` components as props were the main early challenges.
 
 ## License
 
