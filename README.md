@@ -1,4 +1,4 @@
-# Web Development Project 2 - World Capital Flashcards
+# Web Development Project 3 - World Capital Flashcards
 
 Submitted by: **Yingshu**
 
