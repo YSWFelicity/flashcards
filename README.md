@@ -38,7 +38,7 @@ The following **stretch** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-[Watch the demo video](https://drive.google.com/file/d/1mUorQlActqBYQ-bVt978hToSwQov_ZGA/view?usp=sharing)
+[Watch the demo video](https://drive.google.com/file/d/1n16NUwX71yiN_xUPtJi_1JeV8HbCX6vZ/view?usp=sharing)
 
 ## Notes
 
